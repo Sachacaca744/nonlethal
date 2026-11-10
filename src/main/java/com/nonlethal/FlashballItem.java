@@ -25,6 +25,11 @@ public class FlashballItem extends Item {
             RubberBulletEntity b = new RubberBulletEntity(level, player);
             b.shootFromRotation(player, player.getXRot(), player.getYRot(), 0f, 2.5f, 1f);
             level.addFreshEntity(b);
+            if (level instanceof net.minecraft.server.level.ServerLevel sl) {
+                net.minecraft.world.phys.Vec3 m = player.getEyePosition().add(player.getLookAngle().scale(1.2));
+                sl.sendParticles(net.minecraft.core.particles.ParticleTypes.SMOKE, m.x, m.y - 0.15, m.z, 10, 0.05, 0.05, 0.05, 0.02);
+                sl.sendParticles(net.minecraft.core.particles.ParticleTypes.FLAME, m.x, m.y - 0.15, m.z, 3, 0.03, 0.03, 0.03, 0.01);
+            }
             level.playSound(null, player.blockPosition(), SoundEvents.DISPENSER_LAUNCH, SoundSource.PLAYERS, 1f, 1.4f);
             if (!creative) {
                 ammo.shrink(1);
