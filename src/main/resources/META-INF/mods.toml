@@ -1,0 +1,20 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="MIT"
+[[mods]]
+modId="nonlethal"
+version="1.0.0"
+displayName="Armes Non Létales"
+description='''Flash-ball, balles en caoutchouc et pistolet à poivre.'''
+[[dependencies.nonlethal]]
+modId="forge"
+mandatory=true
+versionRange="[47,)"
+ordering="NONE"
+side="BOTH"
+[[dependencies.nonlethal]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.20.1,1.21)"
+ordering="NONE"
+side="BOTH"
